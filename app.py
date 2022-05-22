@@ -11,6 +11,12 @@ config = configparser.ConfigParser()
 scripts = []
 
 if __name__ == '__main__':
+    print(Fore.RED + "  ____          _____  _    _  _____ ____               _                      __ _   ")
+    print(" |  _ \   /\   |  __ \| |  | |/ ____|  _ \             | |                    / _| |  ")
+    print(" | |_) | /  \  | |  | | |  | | (___ | |_) |   ___ _   _| |__   ___  ___  ___ | |_| |_ ")
+    print(" |  _ < / /\ \ | |  | | |  | |\___ \|  _ <   / __| | | | '_ \ / _ \/ __|/ _ \|  _| __|")
+    print(" | |_) / ____ \| |__| | |__| |____) | |_) | | (__| |_| | |_) |  __/\__ \ (_) | | | |_ ")
+    print(" |____/_/    \_\_____/ \____/|_____/|____/   \___|\__,_|_.__/ \___||___/\___/|_|  \__|" + Fore.GREEN)
     #get the path of this script
     # check if the scripts.ini exists
     # if not create it
@@ -74,7 +80,7 @@ if __name__ == '__main__':
     if inp1 == "1":
         for script in scripts:
             scriptindex = str(scripts.index(script))
-            print("("+scriptindex+") "+script['displayname'] + ": " + script['description'])
+            print(Fore.BLUE+"("+scriptindex+") "+script['displayname'] + ": " + script['description'])
         inp = input("Enter Script ID: ")
         os.system('cls')
         # copy contents of the payload.dd to this script and add to first line "DELAY (Here you will paste config[rickroll][delay]and convert it from seconds to miliseconds) )"
@@ -115,14 +121,14 @@ if __name__ == '__main__':
         #    exit()
         for script in scripts:
             scriptsindex = scripts.index(script)
-            print("("+str(scriptsindex)+") "+script['displayname'] + ": " + script['description'])
+            print(Fore.BLUE+ "("+str(scriptsindex)+") "+script['displayname'] + ": " + script['description'] + Fore.GREEN)
         inp = input("Enter Script ID: ")
         os.system('cls')
         # open script.ini and edit the delay
         
         config.read('scripts.ini')
-        print("What do you want to edit?")
-        print("(1) Delay")
+        print(Fore.BLUE + "What do you want to edit?")
+        print(Fore.GREEN +"(1) Delay")
         print("(2) Description")
         print("(3) Display Name")
         print("(4) Path")
@@ -136,7 +142,6 @@ if __name__ == '__main__':
             sections = config.sections()
             for section in sections:
                 # if sections 'index' is equal to inp then edit the description
-                print(section)
                 if section == scripts[int(inp)]['name']:
                     config[section]['delay'] = delay
 
