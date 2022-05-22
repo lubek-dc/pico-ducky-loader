@@ -12,9 +12,9 @@ scripts = []
 
 if __name__ == '__main__':
     #get the path of this script
-    # check if the config.ini exists
+    # check if the scripts.ini exists
     # if not create it
-    # example config.ini:
+    # example scripts.ini:
     # [paths]
     # badusb = C:/
     # [rickroll]
@@ -69,16 +69,16 @@ if __name__ == '__main__':
             script['name'] = config.get(section, 'name')
             
             scripts.append(script)
-    if not os.path.exists('config.ini'):
-        config.read('config.ini')
+    if not os.path.exists('scripts.ini'):
+        config.read('scripts.ini')
         print("Configuring Procedure Starting...")
         pico_path = input('Enter the path to your bad usb (Raspberry Pi Pico like g:/ or c:/ etc.): ')
         config['paths'] = {'badusb': pico_path}
-        with open('config.ini', 'w') as configfile:
+        with open('scripts.ini', 'w') as configfile:
             config.write(configfile)
         print("Configuring Procedure Finished")
     else:
-        config.read('config.ini')
+        config.read('scripts.ini')
         pico_path = config['paths']['badusb']
         print('Bad USB Path: ' + pico_path)
             
@@ -123,7 +123,7 @@ if __name__ == '__main__':
         #if inp == "1":
         #    delay = input("Enter Delay in seconds: ")
         #    config['rickroll']['delay'] = delay 
-        #    with open('config.ini', 'w') as configfile:
+        #    with open('scripts.ini', 'w') as configfile:
         #        config.write(configfile)
         #    print("[LOGS] Rickroll's Delay Has Been Changed")
         #    time.sleep(2)
