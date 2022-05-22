@@ -1,0 +1,13 @@
+GUI r
+DELAY 150
+STRING cmd
+ENTER
+DELAY 400
+STRING cd ".\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+ENTER
+DELAY 150
+STRING del .\rickyou.vbs
+ENTER
+DELAY 150
+STRING del .\volup.vbs
+ENTER
