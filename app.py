@@ -35,21 +35,6 @@ if __name__ == '__main__':
     # delayplaceholder = {DELAY} # in your script at first line create DELAY {DELAY}
     if not os.path.exists('scripts.ini'):
         with open('scripts.ini', 'w') as configfile:
-            config.add_section('RickrollPermanent')
-
-            config.set('RickrollPermanent', 'path', '/RickrollPermanent/payload.dd')
-            config.set('RickrollPermanent', 'displayname', 'Rickroll Permanent')
-            config.set('RickrollPermanent', 'description', 'This is a permanent rickroll use with caution')
-            config.set('RickrollPermanent', 'placeholders', 'false')
-            config.set('RickrollPermanent', 'delayplaceholder', '{DELAY}')
-            config.set('RickrollPermanent', 'delay', '10')
-            config.add_section('RickrollNonPermanent')
-            config.set('RickrollNonPermanent', 'path', '/RickrollNonPermanent/payload.dd')
-            config.set('RickrollNonPermanent', 'displayname', 'Rickroll Non Permanent')
-            config.set('RickrollNonPermanent', 'description', 'This is a non permanent rickroll this is more safe because it will be deleted after restart')
-            config.set('RickrollNonPermanent', 'placeholders', 'true')
-            config.set('RickrollNonPermanent', 'delayplaceholder', '{DELAY}')
-            config.set('RickrollNonPermanent', 'delay', '10')
             config.write(configfile)
     else:
         # assign the config.ini to scripts table
