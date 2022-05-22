@@ -7,32 +7,11 @@ import os
 import time
 import configparser
 
+
 config = configparser.ConfigParser()
 scripts = []
 
 if __name__ == '__main__':
-    #get the path of this script
-    # check if the scripts.ini exists
-    # if not create it
-    # example scripts.ini:
-    # [paths]
-    # badusb = C:/
-    # [rickroll]
-    # delay = 30 #Delay in seconds before the music starts
-    # create a new file named scripts.ini
-    # example scripts.ini:
-    # [RickrollPermanent]
-    # path = \RickrollPermanent\payload.dd
-    # displayname = Rickroll Permanent
-    # description = This is a permanent rickroll use with caution 
-    # placeholders = false
-    # delayplaceholder = {DELAY} # in your script at first line create DELAY {DELAY}
-    # [RickrollNonPermanent]
-    # path = \RickrollNonPermanent\payload.dd
-    # displayname = Rickroll Non Permanent
-    # description = This is a non permanent rickroll this is more safe because it will be deleted after restart
-    # placeholders = true
-    # delayplaceholder = {DELAY} # in your script at first line create DELAY {DELAY}
     if not os.path.exists('scripts.ini'):
         with open('scripts.ini', 'w') as configfile:
             config.write(configfile)
