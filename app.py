@@ -52,7 +52,7 @@ if __name__ == '__main__':
             config.set('RickrollNonPermanent', 'delay', '10')
             config.write(configfile)
     else:
-        # assign the scripts.ini to scripts table
+        # assign the config.ini to scripts table
         config.read('scripts.ini')
         for section in config.sections():
             if section == 'paths':
@@ -69,16 +69,16 @@ if __name__ == '__main__':
             script['name'] = config.get(section, 'name')
             
             scripts.append(script)
-    if not os.path.exists('scripts.ini'):
-        config.read('scripts.ini')
+    if not os.path.exists('config.ini'):
+        config.read('config.ini')
         print("Configuring Procedure Starting...")
         pico_path = input('Enter the path to your bad usb (Raspberry Pi Pico like g:/ or c:/ etc.): ')
         config['paths'] = {'badusb': pico_path}
-        with open('scripts.ini', 'w') as configfile:
+        with open('config.ini', 'w') as configfile:
             config.write(configfile)
         print("Configuring Procedure Finished")
     else:
-        config.read('scripts.ini')
+        config.read('config.ini')
         pico_path = config['paths']['badusb']
         print('Bad USB Path: ' + pico_path)
             
